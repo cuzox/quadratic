@@ -34,18 +34,18 @@ void solveQ(float a, float b, float c){
 	float root[2], d = b * b - 4 * a * c;
   
 	if(d < 0){
-		printf("root are complex: ");
+		printf("Roots are complex: ");
 		printf("%.3f%+.3fi",-b/(2*a),sqrt(-d)/(2*a));
 		printf(", %.3f%+.3fi",-b/(2*a),-sqrt(-d)/(2*a));
 
 	}else if(d==0){
 		root[0] = -b /(2* a);
-		printf("root are equal: %.3f ", root[0]);
+		printf("Roots are equal: %.3f ", root[0]);
 
 	}else{
 		root[0] = ( -b + sqrt(d)) / (2* a);
 		root[1] = ( -b - sqrt(d)) / (2* a);
-		printf("root are real numbers: %.3f , %.3f",root[0],root[1]);
+		printf("Roots are real numbers: %.3f , %.3f",root[0],root[1]);
 	}
 
 }

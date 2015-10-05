@@ -1,0 +1,5 @@
+This program takes two command line arguments: an approximation of pi and the radius of a circle.
+
+It then calculates the area of the circle given those arguments, and then calculates the area of the circle given the PI constant specified in <math.h>.
+
+It then calculates the absolute error and the relative error of those results as measured againt the PI constant results and prints them on the screen.

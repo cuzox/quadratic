@@ -29,5 +29,5 @@ void absoluteError(float expected, float actual){
 }
 
 void relativeError(float expected, float actual){
-	printf("Relative error is %9.9f\n", ((fabs(expected - actual)) / (fabs(expected) + fabs(actual))));
+	printf("Relative error is %9.9f%%\n", ((fabs(expected - actual)) / (fabs(expected) + fabs(actual))) * 100);
 }

@@ -19,22 +19,30 @@ typedef struct {
 
 typedef struct{
 	float root[2];
-	int complex = 0;
-	int equal = 0;
-	int numbers = 0;
+	int complex;
+	int equal;
+	int real;
 } ROOTS;
 
 void *getArgs(int, char*[]);
 void *getCoefs(ARGS*);
-void solveQ(COEFS*);
+void *solveQ(COEFS*);
 
 int main(int argc, char *argv[]){
 	ARGS *args = getArgs(argc, argv);
 	COEFS *coefs = getCoefs(args);
 	ROOTS *roots = solveQ(coefs);
 
-	/* Print roots */
+	if (roots-> complex){
+		printf("Roots are complex: ");
+		printf("%.3f%+.3fi", roots-> root[0],roots-> root[1]);
+		printf(", %.3f%+.3fi\n", roots-> root[0], -roots-> root[1]);
+	}else if(roots-> equal){
+		printf("Roots are equal: %.3f ", roots-> root[0]);
 
+	}else if (roots-> real){
+		printf("Roots are real numbers: %.3f , %.3f", roots-> root[0], roots-> root[1]);
+	}
 }
 
 void *getArgs(int argc, char*argv[]){
@@ -60,6 +68,9 @@ void *getArgs(int argc, char*argv[]){
 	return args;
 }
 
+/* More strict meassures could be taken in this method
+ * to ensure values are floats.
+ */
 void *getCoefs(ARGS *args){
 	COEFS *coefs = malloc(sizeof(COEFS));
 	coefs-> a = atof(args-> a);
@@ -69,24 +80,24 @@ void *getCoefs(ARGS *args){
 	return coefs;
 }
 
-void solveQ(COEFS* coefs){
+void *solveQ(COEFS* coefs){
 	ROOTS *roots = malloc(sizeof(ROOTS));
-	/* reformat */
-	// float root[2], d = b * b - 4 * a * c;
+	float d = coefs-> b * coefs-> b - 4 * coefs-> a * coefs-> c;
   
-	// if(d < 0){
-	// 	printf("Roots are complex: ");
-	// 	printf("%.3f%+.3fi",-b/(2*a),sqrt(-d)/(2*a));
-	// 	printf(", %.3f%+.3fi",-b/(2*a),-sqrt(-d)/(2*a));
+	if(d < 0){
+		roots-> root[0] = -coefs-> b/(2*coefs-> a);
+		roots-> root[0] = sqrt(-d)/(2*coefs-> a);
+		roots-> complex = 1;
 
-	// }else if(d==0){
-	// 	root[0] = -b /(2* a);
-	// 	printf("Roots are equal: %.3f ", root[0]);
+	}else if(d==0){
+		roots-> root[0] = -coefs-> b /(2* coefs-> a);
+		roots-> equal = 1;
 
-	// }else{
-	// 	root[0] = ( -b + sqrt(d)) / (2* a);
-	// 	root[1] = ( -b - sqrt(d)) / (2* a);
-	// 	printf("Roots are real numbers: %.3f , %.3f",root[0],root[1]);
-	// }
+	}else{
+		roots-> root[0] = ( -coefs-> b + sqrt(d)) / (2* coefs-> a);
+		roots-> root[1] = ( -coefs-> b - sqrt(d)) / (2* coefs-> a);
+		roots-> real = 1;
+	}
+
 	return roots;
 }

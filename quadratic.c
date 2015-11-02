@@ -1,30 +1,4 @@
-//testing
 #include "quadratic.h"
-
-#define BUFFERSIZE 30
-
-typedef struct {
-	float a;
-	float b;
-	float c;
-} COEFS;
-
-typedef struct {
-	char a[BUFFERSIZE];
-	char b[BUFFERSIZE];
-	char c[BUFFERSIZE];
-} ARGS;
-
-typedef struct{
-	float root[2];
-	int complex;
-	int equal;
-	int real;
-} ROOTS;
-
-void *getArgs(int, char*[]);
-void *getCoefs(ARGS*);
-void *solveQ(COEFS*);
 
 int main(int argc, char *argv[]){
 	ARGS *args = getArgs(argc, argv);

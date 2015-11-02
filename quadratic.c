@@ -1,56 +1,9 @@
 #include "quadratic.h"
 
-int main(int argc, char *argv[]){
-	ARGS *args = getArgs(argc, argv);
-	COEFS *coefs = getCoefs(args);
-	ROOTS *roots = solveQ(coefs);
-
-	if (roots-> complex){
-		printf("Roots are complex: ");
-		printf("%.3f%+.3fi", roots-> root[0],roots-> root[1]);
-		printf(", %.3f%+.3fi\n", roots-> root[0], -roots-> root[1]);
-	}else if(roots-> equal){
-		printf("Roots are equal: %.3f ", roots-> root[0]);
-
-	}else if (roots-> real){
-		printf("Roots are real numbers: %.3f , %.3f", roots-> root[0], roots-> root[1]);
-	}
-}
-
-void *getArgs(int argc, char*argv[]){
-	int result;
-	char input[BUFFERSIZE*3];
-	ARGS *args = malloc(sizeof(ARGS));
-
-	if (argc == 4){
-		strncpy(argv[1], args-> a, BUFFERSIZE);
-		strncpy(argv[2], args-> b, BUFFERSIZE);
-		strncpy(argv[3], args-> c, BUFFERSIZE);
-	}else{
-
-		do{
-			printf("Enter a,b and c sepparated by a space: ");
-			fgets( input, sizeof(input), stdin);
-			result = sscanf(input, "%s %s %s", &args-> a, &args-> b, &args-> c);
-			if (result != 3)
-				printf("Input not entered in correct format.\n");
-		}while(result < 1);
-	}
-
-	return args;
-}
-
-/* More strict meassures could be taken in this method
- * to ensure values are floats.
+/*Does calculation from given struct of coefs
+ *Returns struct of roots
+ *Testing needs completed to ensure the right answer is coming back out
  */
-void *getCoefs(ARGS *args){
-	COEFS *coefs = malloc(sizeof(COEFS));
-	coefs-> a = atof(args-> a);
-	coefs-> b = atof(args-> b);
-	coefs-> c = atof(args-> c);
-
-	return coefs;
-}
 
 void *solveQ(COEFS* coefs){
 	ROOTS *roots = malloc(sizeof(ROOTS));

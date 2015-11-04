@@ -1,3 +1,6 @@
+#ifndef QUADRATIC_H
+#define QUADRATIC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +27,8 @@ typedef struct{
 	int real;
 } ROOTS;
 
-void *getArgs(int, char*[]);
+void *getArgs(int, char**);
 void *getCoefs(ARGS*);
-void *solveQ(COEFS*);
+void *solveQ(COEFS* coefs);
 
+#endif

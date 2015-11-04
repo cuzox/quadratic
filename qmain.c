@@ -15,4 +15,6 @@ int main(int argc, char *argv[]){
 	}else if (roots-> real){
 		printf("Roots are real numbers: %.3f , %.3f", roots-> root[0], roots-> root[1]);
 	}
+
+	return 0;
 }

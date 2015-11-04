@@ -1,8 +1,9 @@
 #include "quadratic.h"
+#include <math.h>
 
-/*Does calculation from given struct of coefs
- *Returns struct of roots
- *Testing needs completed to ensure the right answer is coming back out
+/* Does calculation from given struct of coefs
+ * Returns struct of roots
+ * Testing needs completed to ensure the right answer is coming back out
  */
 
 void *solveQ(COEFS* coefs){

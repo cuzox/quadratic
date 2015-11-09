@@ -13,13 +13,27 @@ int main(int argc, char *argvp[]){
 	ROOTS *ret; /* return value from quadratic.c */
 	/* temporary variables */
 	double x1, x2;
-	// int x1;
-	// char **x2;
+	int a1;
+	char **a2;
+	int i;
 
 	/* getArgs unit tests */
-	// x1 = 3;
-	// char *x2[3]; 
-	// ARGS *args = getArts();
+	a1 = 4;
+	fprintf(stderr, "entering malloc\n");
+	a2 = calloc(3, sizeof(char*));
+	for(i = 0; i < 3; i++){
+		a2[i] = (char *)calloc(BUFFERSIZE, sizeof(char*));
+	}
+	fprintf(stderr, "leaving malloc\n"); 
+	a2[1] = "5";
+	a2[2] = "6";
+	a2[3] = "1";
+	fprintf(stderr, "assigned values\n");
+	ARGS *args = getArgs(a1, a2);
+	fprintf(stderr, "entering asserts\n");
+	assert_seq("ret", args->a, "5");
+	assert_seq("ret", args->b, "6");
+	assert_seq("ret", args->c, "1");
 
 	/* getCoefs unit tests */
 

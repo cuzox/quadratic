@@ -5,15 +5,17 @@
 //test this for proper input format
 
 
-void *getArgs(int argc, char *argv[]){
+void *getArgs(int argc, char **argv){
 	int result;
 	char input[BUFFERSIZE*3];
 	ARGS* args = malloc(sizeof(ARGS));
+	fprintf(stderr, "%s %s %s\n", argv[1], argv[2], argv[3]);
 
 	if (argc == 4){
-		strncpy(argv[1], args->a, BUFFERSIZE);
-		strncpy(argv[2], args->b, BUFFERSIZE);
-		strncpy(argv[3], args->c, BUFFERSIZE);
+		strncpy(args->a, argv[1], BUFFERSIZE);
+		strncpy(args->b, argv[2], BUFFERSIZE);
+		strncpy(args->c, argv[3], BUFFERSIZE);
+		fprintf(stderr, "copied\n");
 	}else{
 
 		do{

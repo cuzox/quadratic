@@ -17,4 +17,4 @@ cunit.o: cunit.c cunit.h
 	gcc -c cunit.c -Wall -pedantic -lm -std=c99
 
 clean:
-	rm *.o qmain
+	rm *.o tester

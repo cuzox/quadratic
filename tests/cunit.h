@@ -29,6 +29,14 @@ int cunit_init();
               __FILE__ , __LINE__ , str ,  a , b ); \
   } \
 }
+
+#define assert_seq(str,a,b) { \
+  if(strcmp(a , b)){ \
+    fprintf(cunit_log, "%s  LINE %d: %s, %s !!= %s\n", \
+              __FILE__ , __LINE__ , str ,  a , b ); \
+  } \
+}
+
 #define assert_neq(str,a,b) { \
   if( a == b ) { \
     fprintf(cunit_log, "%s  LINE %d: %s, %d !!= %d\n", \

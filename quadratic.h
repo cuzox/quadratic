@@ -29,6 +29,7 @@ typedef struct{
 
 void *getArgs(int, char**);
 void *getCoefs(ARGS*);
-void *solveQ(COEFS* coefs);
+void *solveQ(COEFS*);
 
-#endif
+
+#endif /* QUADRATIC_H */

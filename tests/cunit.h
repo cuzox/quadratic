@@ -37,6 +37,14 @@ int cunit_init();
   } \
 }
 
+#define assert_nseq(str,a,b) { \
+  if(!strcmp(a , b)){ \
+    fprintf(cunit_log, "%s  LINE %d: %s, %s == %s\n", \
+              __FILE__ , __LINE__ , str ,  a , b ); \
+  } \
+}//checks if the strings are not equal
+
+
 #define assert_neq(str,a,b) { \
   if( a == b ) { \
     fprintf(cunit_log, "%s  LINE %d: %s, %d !!= %d\n", \
@@ -73,6 +81,14 @@ int cunit_init();
               __FILE__ , __LINE__ , str , a , b ); \
   } \
 }
+
+#define assert_nfeq(str,a,b) { \
+  if( a == b ) { \
+    fprintf(cunit_log, "%s  LINE %d: %s, %24.16f == %24.16f\n", \
+              __FILE__ , __LINE__ , str , a , b ); \
+  } \
+}//asserts that they do not equal
+
 // eq subject to absolute error
 #define assert_feqaerr(str,a,b,aerr) { \
   if( fabs(a - b) > aerr ) { \

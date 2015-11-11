@@ -18,3 +18,6 @@ cunit.o: cunit.c cunit.h
 
 clean:
 	rm *.o tester
+
+test: tester
+	./tester

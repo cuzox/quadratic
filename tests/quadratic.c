@@ -12,7 +12,7 @@ void *solveQ(COEFS* coefs){
   
 	if(d < 0){
 		roots-> root[0] = -coefs-> b/(2*coefs-> a);
-		roots-> root[0] = sqrt(-d)/(2*coefs-> a);
+		roots-> root[0] = mockSqrt()/(2*coefs-> a);
 		roots-> complex = 1;
 
 	}else if(d==0){
@@ -20,8 +20,8 @@ void *solveQ(COEFS* coefs){
 		roots-> equal = 1;
 
 	}else{
-		roots-> root[0] = ( -coefs-> b + sqrt(d)) / (2* coefs-> a);
-		roots-> root[1] = ( -coefs-> b - sqrt(d)) / (2* coefs-> a);
+		roots-> root[0] = ( -coefs-> b + mockSqrt() / (2* coefs-> a));
+		roots-> root[1] = ( -coefs-> b - mockSqrt() / (2* coefs-> a));
 		roots-> real = 1;
 	}
 

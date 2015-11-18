@@ -14,13 +14,14 @@ int main(int argc, char *argvp[]){
 	COEFS coefs2; /* a, b and c for the quadratic equation */
 	// ROOTS roots; /* root struct with x1 and x2 */
 	ROOTS *ret; /* return value from quadratic.c */
+	
 	/* temporary variables */
 	double x1, x2;
 	float a, b, c;
-	int a1;
+	int a1, i;
 	char **a2;
-	int i;
 	ARGS *args;
+
 	/* getArgs unit tests */
 	a1 = 4;
 	//fprintf(stderr, "entering malloc\n");
@@ -38,9 +39,9 @@ int main(int argc, char *argvp[]){
 	assert_seq("String not Equal Error", args->c, "0");
 
 	//test to make sure it doesnt pass on everything
-	a2[1] = "5";
+	a2[1] = "0";
 	a2[2] = "6";
-	a2[3] = "1";
+	a2[3] = "-11";
 	args = getArgs(a1, a2);
 	assert_nseq("String Equal Error", args->a, "2");
 	assert_nseq("String Equal Error", args->b, "2");

@@ -31,5 +31,8 @@ void *getArgs(int, char**);
 void *getCoefs(ARGS*);
 void *solveQ(COEFS*);
 
+void setExpect(float x);
+float mockSqrt();
+
 
 #endif /* QUADRATIC_H */

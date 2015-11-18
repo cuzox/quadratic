@@ -9,9 +9,9 @@
 #define BUFFERSIZE 30
 
 typedef struct {
-	float a;
-	float b;
-	float c;
+	double a;
+	double b;
+	double c;
 } COEFS;
 
 typedef struct {
@@ -21,7 +21,7 @@ typedef struct {
 } ARGS;
 
 typedef struct{
-	float root[2];
+	double root[2];
 	int complex;
 	int equal;
 	int real;
@@ -31,8 +31,8 @@ void *getArgs(int, char**);
 void *getCoefs(ARGS*);
 void *solveQ(COEFS*);
 
-void setExpect(float x);
-float mockSqrt();
+void setExpect(double x);
+double mockSqrt();
 
 
 #endif /* QUADRATIC_H */

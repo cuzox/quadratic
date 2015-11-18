@@ -1,12 +1,17 @@
-#include "quadratic.h"
-//mock object, you can set what you expect and it will return that
-float expected;
+/* mock object for sqrt(), 
+ * you can set what you expect 
+ * and it will return that 
+ */
 
-void setExpect(float x){
+#include "quadratic.h"
+
+double expected;
+
+void setExpect(double x){
 	expected = x;
 }
 
-float mockSqrt(){
+double mockSqrt(){
 	return expected;
 }
 

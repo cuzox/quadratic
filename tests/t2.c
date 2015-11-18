@@ -30,7 +30,7 @@ int main(int argc, char *argvp[]){
 	assert_feq("Floats not equal Error", b, coefs->b);
 	assert_feq("Floats not equal Error", c, coefs->c);
 	
-	/* checks for coefs not equal */
+	/* checks for coefs mixed */
 	strncpy(args->a, "-5.0", BUFFERSIZE);
 	strncpy(args->b, "6", BUFFERSIZE);
 	strncpy(args->c, "1.1", BUFFERSIZE);
@@ -38,9 +38,9 @@ int main(int argc, char *argvp[]){
 	b = 6.04;
 	c = 0;
 	coefs = getCoefs(args); 
-	assert_nfeq("Floats Equal Error", a, coefs->a);
-	assert_nfeq("Floats Equal Error", b, coefs->b);
-	assert_nfeq("Floats Equal Error", c, coefs->c);
+	assert_nfeq("Floats Equal Error", a, coefs->b);
+	assert_nfeq("Floats Equal Error", b, coefs->c);
+	assert_nfeq("Floats Equal Error", c, coefs->a);
 
 	/* free allocated memory */
 	free(args);

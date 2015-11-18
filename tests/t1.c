@@ -34,14 +34,14 @@ int main(int argc, char *argvp[]){
 	assert_seq("String not Equal Error", args->b, "6.4");
 	assert_seq("String not Equal Error", args->c, "0");
 
-	/* test to make sure it doesn't pass on bad data */
+	/* test to make sure it doesn't mix arguments */
 	a2[1] = "5";
 	a2[2] = "6";
 	a2[3] = "1";
 	args = getArgs(a1, a2);
-	assert_nseq("String Equal Error", args->a, "2");
-	assert_nseq("String Equal Error", args->b, "2");
-	assert_nseq("String Equal Error", args->c, "2");
+	assert_nseq("String Equal Error", args->a, "6");
+	assert_nseq("String Equal Error", args->b, "1");
+	assert_nseq("String Equal Error", args->c, "5");
 
 	/* "free" space for char **a2 */
 	a2 = NULL;

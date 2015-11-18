@@ -1,9 +1,9 @@
+/*
+ * Returns string of arguments
+ * which are later turned into coefs
+ */
+
 #include "quadratic.h"
-
-//Returns string of arguments
-//which are later turned into coefs
-//test this for proper input format
-
 
 void *getArgs(int argc, char **argv){
 	int result;
@@ -17,7 +17,7 @@ void *getArgs(int argc, char **argv){
 	}else{
 
 		do{
-			printf("Enter a, b and c separated by a space: ");
+			printf("Enter a, b and c separated by spaces: ");
 			fgets( input, sizeof(input), stdin);
 			result = sscanf(input, "%s %s %s", args->a, args->b, args->c);
 			if (result != 3)

@@ -10,11 +10,16 @@ extern void *getCoefs(ARGS*);
 extern void *solveQ(COEFS*);
 
 int main(int argc, char *argv[]){
+	
+	/* used for functional testing */
+	int lines = 7;
+	while(lines--){
+
 	ARGS *args = getArgs(argc, argv);
 	COEFS *coefs = getCoefs(args);
 	ROOTS *roots = solveQ(coefs);
 
-	if (roots-> complex){
+	if(roots-> complex){
 		printf("Roots are complex: ");
 		printf("%.8f%+.8fi", roots->root[0], roots->root[1]);
 		printf(", %.8f%+.8fi\n", roots->root[0], -roots->root[1]);
@@ -22,6 +27,8 @@ int main(int argc, char *argv[]){
 		printf("Roots are equal: %.8f\n", roots->root[0]);
 	}else if (roots-> real){
 		printf("Roots are real numbers: %.8f , %.8f\n", roots->root[0], roots->root[1]);
+	}
+
 	}
 
 	return 0;

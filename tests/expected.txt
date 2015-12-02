@@ -1,0 +1,7 @@
+Enter a, b and c separated by a space: Roots are real numbers: 6.00000000 , -5.00000000
+Enter a, b and c separated by a space: Roots are real numbers: 7.64575131 , 2.35424869
+Enter a, b and c separated by a space: Roots are real numbers: 3.66227766 , -2.66227766
+Enter a, b and c separated by a space: Roots are real numbers: 1.63745861 , -2.13745861
+Enter a, b and c separated by a space: Roots are real numbers: 1.53518376 , -0.86851709
+Enter a, b and c separated by a space: Roots are real numbers: 6.54138127 , 0.45861873
+Enter a, b and c separated by a space: Roots are real numbers: 4.30277564 , 0.69722436
